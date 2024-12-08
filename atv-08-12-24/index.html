@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nome Completo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: #fff;
+        border: 2px solid #000;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      input[type='text'] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #resultado {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formulario">
+      <h1>Formulário de Nome Completo</h1>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" placeholder="Digite o nome" />
+      <label for="sobrenome">Sobrenome:</label>
+      <input type="text" id="sobrenome" placeholder="Digite o sobrenome" />
+      <button type="button" onclick="exibirNomeCompleto()">Enviar</button>
+      <p id="resultado"></p>
+    </form>
+
+    <script>
+      function obterNomeCompleto(nome, sobrenome) {
+        if (!nome) {
+          return 'Nome inválido!';
+        }
+        if (!sobrenome) {
+          return 'Sobrenome inválido!';
+        }
+        return `${nome} ${sobrenome}`;
+      }
+
+      function exibirNomeCompleto() {
+        const nome = document.getElementById('nome').value.trim();
+        const sobrenome = document.getElementById('sobrenome').value.trim();
+        const resultado = obterNomeCompleto(nome, sobrenome);
+        document.getElementById('resultado').textContent = resultado;
+      }
+    </script>
+  </body>
+</html>
